@@ -1,5 +1,7 @@
 # jupyterlab-app-template
 
+[![Github Actions Status](https://github.com/jtpio/jupyterlab-app-template/workflows/Build/badge.svg)](https://github.com/jtpio/jupyterlab-app-template/actions)
+
 Kickstart your JupyterLab based application 🚀
 
 This template:
