@@ -7,17 +7,22 @@ This template:
 - is heavily inspired by the [JupyterLab standalone examples](https://github.com/jupyterlab/jupyterlab/tree/master/examples)
 - provides the basic structure to use a custom `JupyterFrontEnd.IShell`
 
+![template-screencast](https://user-images.githubusercontent.com/591645/100390555-18a61380-3031-11eb-9ebc-ff81a5924b16.gif)
+
 ## Usage
 
 Create a new repo using this template:
+
+![image](https://user-images.githubusercontent.com/591645/100390502-e2689400-3030-11eb-8558-c450d7976858.png)
 
 Alternatively, clone the repo with the following command to retrieve the source:
 
 ```bash
 git clone https://github.com/jtpio/jupyterlab-app-template
+cd jupyterlab-app-template/
 ```
 
-To set up the dev environment:
+Then:
 
 ```bash
 # create a new environment
