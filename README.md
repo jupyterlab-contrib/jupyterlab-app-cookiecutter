@@ -9,7 +9,7 @@ This template:
 - is heavily inspired by the [JupyterLab standalone examples](https://github.com/jupyterlab/jupyterlab/tree/master/examples)
 - provides the basic structure to use a custom `JupyterFrontEnd.IShell`
 
-![template-screencast](https://user-images.githubusercontent.com/591645/100390555-18a61380-3031-11eb-9ebc-ff81a5924b16.gif)
+![template-screencast](https://user-images.githubusercontent.com/591645/100391688-87d13700-3034-11eb-8385-0411721ef6c3.gif)
 
 ## Usage
 

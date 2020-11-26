@@ -63,7 +63,7 @@ class ExampleApp(LabServerApp):
     app_url = "/example"
     load_other_extensions = False
     name = __name__
-    app_name = 'JupyterLab Example File Browser'
+    app_name = 'JupyterLab App Template'
     static_dir = os.path.join(HERE, 'build')
     templates_dir = os.path.join(HERE, 'templates')
     app_version = version
