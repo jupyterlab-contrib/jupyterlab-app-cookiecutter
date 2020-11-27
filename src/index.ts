@@ -19,7 +19,8 @@ async function main(): Promise<void> {
   const mods = [
     require('./plugins/paths'),
     require('./plugins/top'),
-    require('./plugins/example')
+    require('./plugins/example'),
+    require('jupyterlab-plugin-graph')
   ];
 
   app.registerPluginModules(mods);

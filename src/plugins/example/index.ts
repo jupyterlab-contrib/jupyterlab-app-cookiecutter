@@ -60,7 +60,10 @@ const plugin: JupyterFrontEndPlugin<void> = {
     });
 
     if (menu) {
-      menu.helpMenu.addGroup([{ command: CommandIDs.open }]);
+      menu.helpMenu.addGroup([
+        { command: CommandIDs.open },
+        { command: 'jupyterlab-plugin-graph:open' }
+      ]);
     }
   }
 };
