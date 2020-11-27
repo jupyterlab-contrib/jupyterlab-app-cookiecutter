@@ -70,7 +70,7 @@ The first step is to add the dependency to the `package.json`. Here using the [j
    "devDependencies": {
 ```
 
-Run `yarn` to install the dependency. 
+Run `yarn` to install the dependency.
 
 ### Load the plugin
 
