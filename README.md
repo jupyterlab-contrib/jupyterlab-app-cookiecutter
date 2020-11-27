@@ -40,3 +40,13 @@ yarn run build
 # run the app
 python main.py
 ```
+
+There is also a watch command to automatically rebuild the application when there are new changes:
+
+```bash
+yarn run watch
+```
+
+## Contributing
+
+If you think there should be other defaults as part of this template, please open a new [issue](https://github.com/jtpio/jupyterlab-app-template/issues) or [pull request](https://github.com/jtpio/jupyterlab-app-template/pulls)!
