@@ -6,20 +6,23 @@ Example
 -------
 
 To run the example, see the instructions in the README to build it. Then
-run ``python main.py``.
+run ``jupyterlab-app-example``.
 
 """
 import os
-import json
+
 from jupyter_server.base.handlers import JupyterHandler
-from jupyter_server.extension.handler import ExtensionHandlerMixin, ExtensionHandlerJinjaMixin
+from jupyter_server.extension.handler import (
+    ExtensionHandlerMixin,
+    ExtensionHandlerJinjaMixin
+)
 from jupyterlab_server import LabServerApp
 from jupyter_server.utils import url_path_join as ujoin
 
+from ._version import __version__
+
 HERE = os.path.dirname(__file__)
 
-with open(os.path.join(HERE, 'package.json')) as fid:
-    version = json.load(fid)['version']
 
 def _jupyter_server_extension_points():
     return [
@@ -29,18 +32,19 @@ def _jupyter_server_extension_points():
         }
     ]
 
+
 class ExampleHandler(
     ExtensionHandlerJinjaMixin,
     ExtensionHandlerMixin,
     JupyterHandler
-    ):
+        ):
     """Handle requests between the main app page and notebook server."""
 
     def get(self):
         """Get the main page for the application's interface."""
         config_data = {
             # Use camelCase here, since that's what the lab components expect
-            "appVersion": version,
+            "appVersion": __version__,
             'baseUrl': self.base_url,
             'token': self.settings['token'],
             'fullStaticUrl': ujoin(self.base_url, 'static', self.name),
@@ -65,15 +69,14 @@ class ExampleApp(LabServerApp):
     load_other_extensions = False
     name = __name__
     app_name = 'JupyterLab App Template'
-    static_dir = os.path.join(HERE, 'build')
+    static_dir = os.path.join(HERE, 'static')
     templates_dir = os.path.join(HERE, 'templates')
-    app_version = version
-    app_settings_dir = os.path.join(HERE, 'build', 'application_settings')
-    schemas_dir = os.path.join(HERE, 'build', 'schemas')
-    themes_dir = os.path.join(HERE, 'build', 'themes')
-    user_settings_dir = os.path.join(HERE, 'build', 'user_settings')
-    workspaces_dir = os.path.join(HERE, 'build', 'workspaces')
-
+    app_version = __version__
+    app_settings_dir = os.path.join(HERE, 'static', 'application_settings')
+    schemas_dir = os.path.join(HERE, 'static', 'schemas')
+    themes_dir = os.path.join(HERE, 'static', 'themes')
+    user_settings_dir = os.path.join(HERE, 'static', 'user_settings')
+    workspaces_dir = os.path.join(HERE, 'static', 'workspaces')
 
     def initialize_handlers(self):
         """Add example handler to Lab Server's handler list.
@@ -82,5 +85,4 @@ class ExampleApp(LabServerApp):
         self.handlers.append(('/example', ExampleHandler))
 
 
-if __name__ == '__main__':
-    ExampleApp.launch_instance()
+main = ExampleApp.launch_instance

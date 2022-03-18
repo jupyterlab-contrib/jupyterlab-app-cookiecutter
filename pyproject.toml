@@ -1,0 +1,20 @@
+[build-system]
+requires = ["jupyter_packaging~=0.10", "jupyterlab>=3.2,<5"]
+build-backend = "jupyter_packaging.build_api"
+
+[license]
+file="LICENSE"
+
+[tool.jupyter-packaging.options]
+skip-if-exists = ["jupyterlab_app_example/static/bundle.js"]
+ensured-targets = ["jupyterlab_app_example/static/bundle.js"]
+
+[tool.jupyter-packaging.builder]
+factory = "jupyter_packaging.npm_builder"
+
+[tool.jupyter-packaging.build-args]
+build_cmd = "build:prod"
+npm = ["jlpm"]
+
+[tool.check-manifest]
+ignore = ["app/**", "binder/**", "buildutils/**", "packages/**", "*.json", "yarn.lock", "readthedocs.yml", ".bumpversion.cfg", ".*", "lint-staged.config.js", "logo.*", "jupyterlab_app_example/labextension/**", "jupyterlab_app_example/schemas/**", "jupyterlab_app_example/static/**", "jupyterlab_app_example/template/**", "ui-tests/**"]
