@@ -2,9 +2,18 @@ include LICENSE
 include *.md
 include pyproject.toml
 include setup.py
+include setup.cfg
 include jupyter-config/jupyterlab-lab-example.json
 
 include package.json
+include yarn.lock
+include webpack.config.js
+include tsconfig.eslint.json
+include .prettierrc
+include .prettierignore
+include .eslintrc.js
+include .eslintignore
+include tsconfig.json
 include install.json
 include ts*.json
 
