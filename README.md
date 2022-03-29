@@ -31,17 +31,14 @@ Then:
 mamba create -n jupyterlab-app-template -c conda-forge nodejs yarn python jupyterlab_server=2 -y
 conda activate jupyterlab-app-template
 
-# install the dependencies
-yarn
-
 # build the app
-yarn run build
+pip install -e .
 
 # run the app
-python main.py
+jupyterlab-app-example
 ```
 
-There is also a watch command to automatically rebuild the application when there are new changes:
+There is a watch command to automatically rebuild the application when there are new changes on the TypeScript code:
 
 ```bash
 yarn run watch
