@@ -30,12 +30,12 @@
     "watch": "npm-run-all --parallel watch:ts watch:webpack"
   },
   "dependencies": {
-    "@jupyterlab/application": "^3.0.0-rc.10",
-    "@jupyterlab/apputils": "^3.0.0-rc.10",
-    "@jupyterlab/mainmenu": "^3.0.0-rc.10",
-    "@jupyterlab/theme-light-extension": "^3.0.0-rc.10",
-    "@jupyterlab/ui-components": "^3.0.0-rc.10",
-    "@lumino/widgets": "^1.14.0",
+    "@jupyterlab/application": "^3.3.2",
+    "@jupyterlab/apputils": "^3.3.2",
+    "@jupyterlab/mainmenu": "^3.3.2",
+    "@jupyterlab/theme-light-extension": "^3.3.2",
+    "@jupyterlab/ui-components": "^3.3.2",
+    "@lumino/widgets": "^1.31.1",
     "es6-promise": "~4.2.8"
   },
   "devDependencies": {
