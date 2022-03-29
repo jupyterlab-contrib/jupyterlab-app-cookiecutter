@@ -1,9 +1,10 @@
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
   entry: ['whatwg-fetch', './lib/index.js'],
   output: {
-    path: __dirname + '/build',
+    path: path.resolve(__dirname, 'jupyterlab_app_example', 'static'),
     filename: 'bundle.js'
   },
   bail: true,

@@ -1,0 +1,34 @@
+include LICENSE
+include *.md
+include pyproject.toml
+include setup.py
+include setup.cfg
+include jupyter-config/jupyterlab-lab-example.json
+
+include package.json
+include yarn.lock
+include webpack.config.js
+include tsconfig.eslint.json
+include .prettierrc
+include .prettierignore
+include .eslintrc.js
+include .eslintignore
+include tsconfig.json
+include install.json
+include ts*.json
+
+graft jupyterlab_lab_example/static
+graft jupyterlab_lab_example/templates
+
+# Javascript files
+graft src
+graft style
+prune **/node_modules
+prune lib
+
+# Patterns to exclude from any directory
+global-exclude *~
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .git
+global-exclude .ipynb_checkpoints
