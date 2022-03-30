@@ -9,7 +9,7 @@ import { App } from '../../app/app';
  * The default paths.
  */
 const paths: JupyterFrontEndPlugin<JupyterFrontEnd.IPaths> = {
-  id: 'jupyterlab-app-template:paths',
+  id: '{{cookiecutter.github_project_name}}:paths',
   activate: (
     app: JupyterFrontEnd<JupyterFrontEnd.IShell>
   ): JupyterFrontEnd.IPaths => {

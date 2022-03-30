@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: ['whatwg-fetch', './lib/index.js'],
   output: {
-    path: path.resolve(__dirname, 'jupyterlab_app_example', 'static'),
+    path: path.resolve(__dirname, '{{cookiecutter.python_package_name}}', 'static'),
     filename: 'bundle.js'
   },
   bail: true,

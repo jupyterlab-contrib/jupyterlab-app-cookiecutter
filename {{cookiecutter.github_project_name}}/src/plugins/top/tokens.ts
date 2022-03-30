@@ -7,9 +7,7 @@ import { Menu } from '@lumino/widgets';
 /**
  * The main menu token.
  */
-export const IMainMenu = new Token<IMainMenu>(
-  'jupyterlab-app-template/menu:IMainMenu'
-);
+export const IMainMenu = new Token<IMainMenu>('{{cookiecutter.github_project_name}}/menu:IMainMenu');
 
 /**
  * The main menu interface.

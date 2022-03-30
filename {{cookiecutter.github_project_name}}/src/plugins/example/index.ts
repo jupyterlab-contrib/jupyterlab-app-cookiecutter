@@ -15,14 +15,14 @@ import { Widget } from '@lumino/widgets';
  * The command ids used by the main plugin.
  */
 export namespace CommandIDs {
-  export const open = 'jupyterlab-app-template:open';
+  export const open = '{{cookiecutter.github_project_name}}:open';
 }
 
 /**
  * The main plugin.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  id: 'jupyterlab-app-template:main',
+  id: '{{cookiecutter.github_project_name}}:main',
   autoStart: true,
   optional: [IMainMenu],
   activate: (app: JupyterFrontEnd, menu: IMainMenu | null): void => {

@@ -1,7 +1,8 @@
 {
-  "name": "jupyterlab-app-template",
+  "name": "{{cookiecutter.github_project_name}}",
   "version": "0.1.0",
-  "private": true,
+  "author": "{{cookiecutter.author_name}}",
+  "description": "{{cookiecutter.project_short_description}}",
   "files": [
     "lib/**/*.{d.ts,js.map,js}",
     "style/**/*.{css,svg}",

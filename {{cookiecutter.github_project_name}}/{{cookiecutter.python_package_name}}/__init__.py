@@ -6,7 +6,7 @@ Example
 -------
 
 To run the example, see the instructions in the README to build it. Then
-run ``jupyterlab-app-example``.
+run ``{{cookiecutter.python_package_name}}``.
 
 """
 import os
