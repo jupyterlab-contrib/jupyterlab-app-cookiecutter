@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "jupyterlab-app-example",
+    "start:detached": "yarn run start&",
+    "test": "playwright test",
+    "test:debug": "PWDEBUG=1  playwright test",
+    "test:update": "playwright test --update-snapshots"
+  },
+  "dependencies": {
+    "@jupyterlab/galata": "^4.0.2",
+    "rimraf": "^3.0.2"
+  }
+}

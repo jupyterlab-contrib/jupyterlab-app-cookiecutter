@@ -1,0 +1,84 @@
+name: UI Tests
+
+on: [push, pull_request]
+
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  ui-tests:
+    name: Visual Regression
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.10]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Base Setup
+        uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
+
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          mamba-version: "*"
+          channels: conda-forge
+
+      - name: Mamba install dependencies
+        run: mamba install python=${{ matrix.python-version }} pip nodejs yarn jupyterlab
+
+      - name: Install lab remix
+        run: pip install .
+
+      - name: Install browser
+        run: |
+          jlpm install
+          jlpm playwright install chromium
+        working-directory: ui-tests
+
+      - name: Launch
+        run: jlpm start:detached > /tmp/jupyterlab_server.log 2>&1
+        working-directory: ui-tests
+
+      - name: Wait for JupyterLab
+        uses: ifaxity/wait-on-action@v1
+        with:
+          resource: http-get://localhost:8866/
+          timeout: 360000
+
+      - name: Widget rendering tests
+        run: jlpm run test
+        working-directory: ui-tests
+
+      - name: Upload Playwright Test assets
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: lab-test-assets
+          path: |
+            ui-tests/test-results
+
+      - name: Upload Playwright Test report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: lab-test-report
+          path: |
+            ui-tests/playwright-report
+
+      - name: Update snapshots
+        if: failure()
+        run: |
+          # remove previous snapshots from other browser
+          jlpm rimraf "tests/**/*-snapshots/*.png"
+          # generate new snapshots
+          jlpm run test:update
+        working-directory: ui-tests
+
+      - name: Print JupyterLab logs
+        if: always()
+        run: cat /tmp/jupyterlab_server.log
