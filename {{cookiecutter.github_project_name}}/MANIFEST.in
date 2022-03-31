@@ -3,7 +3,6 @@ include *.md
 include pyproject.toml
 include setup.py
 include setup.cfg
-include jupyter-config/jupyterlab-lab-example.json
 
 include package.json
 include yarn.lock
@@ -17,8 +16,8 @@ include tsconfig.json
 include install.json
 include ts*.json
 
-graft jupyterlab_lab_example/static
-graft jupyterlab_lab_example/templates
+graft {{cookiecutter.python_package_name}}/static
+graft {{cookiecutter.python_package_name}}/templates
 
 # Javascript files
 graft src

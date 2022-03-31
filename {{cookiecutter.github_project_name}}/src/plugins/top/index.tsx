@@ -26,7 +26,7 @@ namespace CommandIDs {
  * The main menu plugin.
  */
 const plugin: JupyterFrontEndPlugin<IMainMenu> = {
-  id: 'jupyterlab-app-template:menu',
+  id: '{{cookiecutter.github_project_name}}:menu',
   autoStart: true,
   provides: IMainMenu,
   activate: (app: JupyterFrontEnd): IMainMenu => {
@@ -54,7 +54,7 @@ const plugin: JupyterFrontEndPlugin<IMainMenu> = {
           </span>
         );
 
-        const repoUrl = 'https://github.com/jtpio/jupyterlab-app-template';
+        const repoUrl = 'https://github.com/{{cookiecutter.github_organization_name}}/{{cookiecutter.github_project_name}}';
         const externalLinks = (
           <span>
             <a

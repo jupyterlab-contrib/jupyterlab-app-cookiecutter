@@ -1,0 +1,12 @@
+{
+	"author_name": "John Doe",
+	"author_email": "",
+	"github_project_name": "test-app",
+	"github_organization_name": "",
+	"python_package_name": "{{ cookiecutter.github_project_name | replace('-', '_') }}",
+	"project_short_description": "A JupyterLab based standalone application",
+	"_copy_without_render": [
+		"{{cookiecutter.python_package_name}}/templates/*",
+		".github/workflows/*"
+	]
+}

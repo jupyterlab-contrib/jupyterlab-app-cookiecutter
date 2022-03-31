@@ -11,13 +11,13 @@ from jupyter_packaging import (
 
 HERE = Path(__file__).parent
 
-JUPYTERLAB_APP_EXAMPLE_DIR = HERE / "jupyterlab_app_example"
+{{cookiecutter.python_package_name}}_DIR = HERE / "{{cookiecutter.python_package_name}}"
 
 jstargets = [
-    (JUPYTERLAB_APP_EXAMPLE_DIR / "static" / "bundle.js").resolve(),
+    ({{cookiecutter.python_package_name}}_DIR / "static" / "bundle.js").resolve(),
 ]
 
-cmdclass = create_cmdclass("jsbuild", package_data_spec={"jupyterlab_app_example": "**"})
+cmdclass = create_cmdclass("jsbuild", package_data_spec={"{{cookiecutter.python_package_name}}": "**"})
 cmdclass["jsbuild"] = combine_commands(
     install_npm(HERE.resolve(), npm=["jlpm"], build_cmd="build"), ensure_targets(jstargets),
 )

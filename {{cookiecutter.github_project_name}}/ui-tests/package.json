@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "jupyterlab-app-example",
+    "start": "{{cookiecutter.github_project_name}}",
     "start:detached": "yarn run start&",
     "test": "playwright test",
     "test:debug": "PWDEBUG=1  playwright test",
