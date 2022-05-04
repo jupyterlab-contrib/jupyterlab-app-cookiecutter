@@ -41,7 +41,7 @@ Since this template uses the same plugin system as the one used in JupyterLab, a
 
 ### Add the dependency
 
-The first step is to add the dependency to the `package.json`. Here using the [jupyterlab-plugin-graph](https://github.com/jtpio/jupyterlab-plugin-graph) JupyterLab extension available on npm:
+The first step is to add the dependency to the `package.json`. Here using the [jupyterlab-plugin-graph](https://github.com/jupyterlab-contrib/jupyterlab-plugin-graph) JupyterLab extension available on npm:
 
 ```diff
 --- a/package.json
