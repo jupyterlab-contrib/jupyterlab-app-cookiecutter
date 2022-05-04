@@ -9,7 +9,7 @@ Create a new repo using this cookiecutter:
 ```bash
 pip install cookiecutter
 
-cookiecutter https://github.com/jtpio/jupyterlab-app-template
+cookiecutter https://github.com/jupyterlab-contrib/jupyterlab-app-template
 ```
 
 Follow the instructions in the README.md of the generated project to have your
