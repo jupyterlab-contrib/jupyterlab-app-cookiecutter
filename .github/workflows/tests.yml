@@ -35,15 +35,22 @@ jobs:
         run: cookiecutter . --no-input
 
       - name: Install lab remix
-        run: pip install .
+        run: pip install .[test]
+        working-directory: test-app
+
+      - name: Backend tests
+        run: py.test
+        working-directory: test-app
+
+      - name: Frontend tests
+        run: yarn test
         working-directory: test-app
 
       - name: Lint
         run: |
           jlpm
           jlpm run build
-          jlpm run eslint:check
-          jlpm run prettier:check
+          jlpm run lint:check
         working-directory: test-app
 
       - name: Install browser

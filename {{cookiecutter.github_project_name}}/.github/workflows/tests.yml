@@ -1,0 +1,40 @@
+name: Python and JS tests
+
+on: [push, pull_request]
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  tests:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10"]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Base Setup
+        uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
+
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          mamba-version: "*"
+          channels: conda-forge
+
+      - name: Mamba install dependencies
+        run: mamba install python=${{ matrix.python-version }} pip nodejs yarn jupyterlab
+
+      - name: Install lab remix
+        run: pip install .[test]
+
+      - name: Run Python test
+        run: py.test
+
+      - name: Run JS test
+        run: yarn test
