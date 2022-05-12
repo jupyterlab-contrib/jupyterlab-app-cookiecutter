@@ -35,7 +35,15 @@ jobs:
         run: cookiecutter . --no-input
 
       - name: Install lab remix
-        run: pip install .
+        run: pip install .[test]
+        working-directory: test-app
+
+      - name: Backend tests
+        run: py.test
+        working-directory: test-app
+
+      - name: Frontend tests
+        run: yarn test
         working-directory: test-app
 
       - name: Lint
