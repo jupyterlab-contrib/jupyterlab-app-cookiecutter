@@ -26,6 +26,7 @@
     "eslint": "eslint . --ext .ts,.tsx --fix",
     "eslint:check": "eslint . --ext .ts,.tsx",
     "lint": "yarn prettier && yarn eslint",
+    "lint:check": "yarn prettier:check && yarn eslint:check",
     "test": "jest",
     "watch:ts": "tsc -w --listEmittedFiles",
     "watch:webpack": "webpack --watch",

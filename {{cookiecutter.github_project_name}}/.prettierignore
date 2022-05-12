@@ -4,3 +4,4 @@ node_modules
 **/build
 **/static
 ui-tests
+.pytest_cache
