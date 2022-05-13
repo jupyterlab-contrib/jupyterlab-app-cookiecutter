@@ -1,0 +1,33 @@
+
+name: "Create package"
+description: "Create application from the template"
+inputs:
+  python_version:
+    description: "The python version"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Base Setup
+      uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
+
+    - name: Setup conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        mamba-version: "*"
+        channels: conda-forge
+
+    - name: Mamba install dependencies
+      shell: bash -l {0}
+      run: mamba install python=${{ inputs.python_version }} pip nodejs yarn jupyterlab cookiecutter
+
+    - name: Generate app
+      shell: bash -l {0}
+      run: cookiecutter . --no-input
+
+    - name: Install lab remix
+      shell: bash -l {0}
+      run: pip install .[test]
+      working-directory: test-app
