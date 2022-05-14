@@ -8,36 +8,19 @@ defaults:
     shell: bash -l {0}
 
 jobs:
-  ui-tests:
-    name: Visual Regression
+  tests:
+    name: Application Tests
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python: ["3.10"]
       fail-fast: false
-
     steps:
       - uses: actions/checkout@v2
 
-      - name: Base Setup
-        uses: jupyterlab/maintainer-tools/.github/actions/base-setup@v1
-
-      - name: Setup conda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          mamba-version: "*"
-          channels: conda-forge
-
-      - name: Mamba install dependencies
-        run: mamba install python=${{ matrix.python-version }} pip nodejs yarn jupyterlab cookiecutter
-
-      - name: Generate app
-        run: cookiecutter . --no-input
-
-      - name: Install lab remix
-        run: pip install .[test]
-        working-directory: test-app
-
+      - name: Create package
+        uses: ./.github/actions/create-package
+        
       - name: Backend tests
         run: py.test
         working-directory: test-app
@@ -53,6 +36,20 @@ jobs:
           jlpm run lint:check
         working-directory: test-app
 
+  ui-tests:
+    name: Visual Regression
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10"]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Create package
+        uses: ./.github/actions/create-package
+        
       - name: Install browser
         run: |
           jlpm install
