@@ -9,7 +9,7 @@ import { PageConfig, URLExt } from '@jupyterlab/coreutils';
 
 import { App } from './app/app';
 
-import '../style/index.css';
+import '../style/index.js';
 
 /**
  * The main function
