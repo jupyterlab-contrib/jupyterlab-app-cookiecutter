@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "start": "{{cookiecutter.github_project_name}}",
+    "start": "{{cookiecutter.github_project_name}} --config jupyter_server_config.py",
     "start:detached": "yarn run start&",
     "test": "playwright test",
     "test:debug": "PWDEBUG=1  playwright test",

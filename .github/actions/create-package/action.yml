@@ -21,7 +21,7 @@ runs:
 
     - name: Mamba install dependencies
       shell: bash -l {0}
-      run: mamba install python=${{ inputs.python_version }} pip nodejs yarn jupyterlab cookiecutter
+      run: mamba install python=${{ inputs.python_version }} pip nodejs=16 yarn=1 jupyterlab cookiecutter
 
     - name: Generate app
       shell: bash -l {0}
