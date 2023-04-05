@@ -20,7 +20,7 @@ jobs:
 
       - name: Create package
         uses: ./.github/actions/create-package
-        
+
       - name: Backend tests
         run: py.test
         working-directory: test-app
@@ -49,7 +49,7 @@ jobs:
 
       - name: Create package
         uses: ./.github/actions/create-package
-        
+
       - name: Install browser
         run: |
           jlpm install
